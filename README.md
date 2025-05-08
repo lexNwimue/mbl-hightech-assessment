@@ -10,6 +10,8 @@ This project is a real-time price simulation and broadcasting system built with 
 
 ## 🛠️ Getting Started
 
+View live app at: https://mbl-hightech-assessment.onrender.com. (Note that since this is a free, serverless service, its susceptible to cold starts so it might take some time before the data renders on the browser)
+
 ### 📖 How It Works
 
 #### 🧮 Price Simulation
