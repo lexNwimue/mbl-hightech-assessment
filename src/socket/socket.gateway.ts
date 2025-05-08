@@ -29,6 +29,7 @@ export class SocketGateway implements OnGatewayInit {
       this.logger.log('Message emitted');
     } catch (error) {
       console.error(error);
+      // We could have another service handle this (prefrably a globla error service) and also use error management toolings such as Sentry, but simplicity we're only logging the erroor
     }
   }
 }
