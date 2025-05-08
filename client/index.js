@@ -1,4 +1,9 @@
-const socket = io('http://localhost:3000');
+const baseURL =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:3000'
+    : 'https://mbl-hightech-assessment.onrender.com';
+
+const socket = io(baseURL);
 const tableBody = document.getElementById('priceTableBody');
 const latestPrices = {};
 
