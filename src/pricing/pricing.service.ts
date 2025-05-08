@@ -35,7 +35,7 @@ export class PricingService implements OnModuleInit {
 
     for (const symbol in this.prices) {
       const current = this.prices[symbol];
-      const change = current * (Math.random() * 0.02 - 0.01); // ±1%
+      const change = current * (Math.random() * 0.03 - 0.01); // ±2%
       const updated = parseFloat((current + change).toFixed(2));
       this.prices[symbol] = updated;
 
