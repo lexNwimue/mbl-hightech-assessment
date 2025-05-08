@@ -1,7 +1,7 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { PriceData } from './interfaces/pricing-data.interface';
 import { SocketGateway } from 'src/socket/socket.gateway';
-import { WebSocketEvent } from './enums/ws-events.enum';
+import { WebSocketEvent } from '../socket/enums/ws-events.enum';
 
 @Injectable()
 export class PricingService implements OnModuleInit {
@@ -19,7 +19,7 @@ export class PricingService implements OnModuleInit {
     this._generateAndEmitPrice();
   }
 
-  private _generateAndEmitPrice() {
+  private _generateAndEmitPrice(): void {
     setInterval(() => {
       const prices = this._generatePrices();
       this.socketService.emitMessage(WebSocketEvent.PRICE_UPDATE, prices);

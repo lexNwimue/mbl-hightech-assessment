@@ -5,7 +5,7 @@ import {
 } from '@nestjs/websockets';
 import { Server } from 'socket.io';
 import { Logger } from '@nestjs/common';
-import { WebSocketEvent } from 'src/pricing/enums/ws-events.enum';
+import { WebSocketEvent } from 'src/socket/enums/ws-events.enum';
 
 @WebSocketGateway({
   cors: {
@@ -22,10 +22,10 @@ export class SocketGateway implements OnGatewayInit {
     this.logger.log('WebSocket server initialized');
   }
 
-  emitMessage(event: WebSocketEvent, message: unknown) {
+  emitMessage(event: WebSocketEvent, message: unknown): void {
     try {
       this.logger.log('Emitting message');
-      this.server.emit(WebSocketEvent.PRICE_UPDATE, message);
+      this.server.emit(event, message);
       this.logger.log('Message emitted');
     } catch (error) {
       console.error(error);
