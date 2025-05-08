@@ -9,7 +9,6 @@ socket.on('connect', () => {
 });
 
 socket.on('price_update', (data) => {
-  console.log('Price updating');
   data.forEach(({ symbol, price, timestamp }) => {
     const oldPrice = latestPrices[symbol];
     latestPrices[symbol] = price;
